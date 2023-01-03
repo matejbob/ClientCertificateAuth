@@ -5,38 +5,38 @@ using Microsoft.Extensions.Logging;
 
 namespace ClientCertificateAuth
 {
-	public class Functions
-	{
-		private readonly ILogger _logger;
+    public class Functions
+    {
+        private readonly ILogger _logger;
 
-		public Functions(ILoggerFactory loggerFactory)
-		{
-			_logger = loggerFactory.CreateLogger<Functions>();
-		}
+        public Functions(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<Functions>();
+        }
 
-		[AnonymousAccess]
-		[Function("PublicFunction")]
-		public HttpResponseData RunPublicFunction([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
-		{
-			_logger.LogInformation($"{nameof(RunPublicFunction)} invoked");
+        [AnonymousAccess]
+        [Function("PublicFunction")]
+        public HttpResponseData RunPublicFunction([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
+        {
+            _logger.LogInformation($"{nameof(RunPublicFunction)} invoked");
 
-			var response = req.CreateResponse(HttpStatusCode.OK);
+            var response = req.CreateResponse(HttpStatusCode.OK);
 
-			response.WriteString(System.Text.Json.JsonSerializer.Serialize(new { Msg = "Public Azure Function called" }));
+            response.WriteString(System.Text.Json.JsonSerializer.Serialize(new { Msg = "Public Azure Function called" }));
 
-			return response;
-		}
+            return response;
+        }
 
-		[Function("SecuredFunction")]
-		public HttpResponseData RunSecuredFunction([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
-		{
-			_logger.LogInformation($"{nameof(RunSecuredFunction)} invoked");
+        [Function("SecuredFunction")]
+        public HttpResponseData RunSecuredFunction([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
+        {
+            _logger.LogInformation($"{nameof(RunSecuredFunction)} invoked");
 
-			var response = req.CreateResponse(HttpStatusCode.OK);
+            var response = req.CreateResponse(HttpStatusCode.OK);
 
-			response.WriteString(System.Text.Json.JsonSerializer.Serialize(new { Msg = "Secured Azure Function called" }));
+            response.WriteString(System.Text.Json.JsonSerializer.Serialize(new { Msg = "Secured Azure Function called" }));
 
-			return response;
-		}
-	}
+            return response;
+        }
+    }
 }

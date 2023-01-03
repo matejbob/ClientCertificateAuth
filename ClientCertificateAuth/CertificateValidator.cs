@@ -49,7 +49,7 @@ namespace ClientCertificateAuth
 
         private readonly HashSet<string> validCertificates = new()
         {
-            "EF7D48E4A3B44FBCFE13881EC8504E13B51D2EF2"
+            "30ECA2BCC4B93F690E42E3879169D0B42199201D"
         };
 
         private readonly ILogger<CertificateValidator> _logger;

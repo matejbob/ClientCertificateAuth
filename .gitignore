@@ -305,3 +305,7 @@ Training
 Blog
 About
 IsolatedAzureFunctionSecuredClientCert/.gitignore at main · matejbob/IsolatedAzureFunctionSecuredClientCert
+
+# Publish profile
+**/Properties/PublishProfiles
+**/Properties/ServiceDependencies

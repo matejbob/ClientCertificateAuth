@@ -1,8 +1,8 @@
 ﻿namespace ClientCertificateAuth
 {
-	[AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
 
-	public class AnonymousAccessAttribute : Attribute
-	{
-	}
+    public class AnonymousAccessAttribute : Attribute
+    {
+    }
 }
